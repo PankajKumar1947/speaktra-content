@@ -1,0 +1,105 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.json'
+      - 'word-banks/**'
+  workflow_dispatch:
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Purge jsDelivr CDN for changed files
+        run: |
+          set -euo pipefail
+
+          REPO="PankajKumar1947/speaktra-content"
+          BRANCH="main"
+          BASE_URL="https://purge.jsdelivr.net/gh/${REPO}@${BRANCH}"
+
+          # Collect changed JSON files
+          CHANGED_FILES=""
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- '*.json' || true)
+          fi
+
+          # Fallback: if no diff (initial push, force-push, etc.) purge all known JSON files
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No diff found or no JSON changed — purging all JSON files..."
+            CHANGED_FILES=$(find word-banks -type f -name '*.json' 2>/dev/null; echo "domains.json")
+          fi
+
+          echo "Files to purge:"
+          echo "$CHANGED_FILES"
+          echo ""
+
+          FAILED=0
+          SUCCESS=0
+
+          for file in $CHANGED_FILES; do
+            # Skip deleted files (still in diff but not on disk) — still purge CDN
+            # and skip non-existent patterns
+            if [ -z "$file" ]; then continue; fi
+
+            PURGE_URL="${BASE_URL}/${file}"
+            echo "Purging: $PURGE_URL"
+
+            # Retry up to 3 times
+            ATTEMPT=0
+            PURGED=false
+            while [ $ATTEMPT -lt 3 ]; do
+              ATTEMPT=$((ATTEMPT+1))
+              HTTP_CODE=$(curl -s -o /tmp/purge_response.txt -w "%{http_code}" "$PURGE_URL" || echo "000")
+              BODY=$(cat /tmp/purge_response.txt 2>/dev/null || true)
+              echo "  Attempt $ATTEMPT → HTTP $HTTP_CODE — $BODY"
+
+              if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+                PURGED=true
+                break
+              fi
+
+              if [ $ATTEMPT -lt 3 ]; then
+                echo "  Retrying in 2s..."
+                sleep 2
+              fi
+            done
+
+            if [ "$PURGED" = true ]; then
+              SUCCESS=$((SUCCESS+1))
+            else
+              echo "  ::warning::Failed to purge $file after 3 attempts"
+              FAILED=$((FAILED+1))
+            fi
+          done
+
+          echo ""
+          echo "Purge complete: $SUCCESS succeeded, $FAILED failed out of $((SUCCESS+FAILED)) files."
+
+          if [ $FAILED -gt 0 ]; then
+            echo "::warning::Some purges failed — jsDelivr may still serve stale content for a few minutes."
+            # Don't fail the workflow hard, but surface the warning
+            exit 0
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### jsDelivr Purge" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Purge requests sent to \`purge.jsdelivr.net\` for changed JSON files on \`@main\`." >> "$GITHUB_STEP_SUMMARY"
+          echo "If you use version-pinned URLs (\`@v1.x.x\`), no purge is needed — new tags are always fresh." >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Manual purge example:" >> "$GITHUB_STEP_SUMMARY"
+          echo '```bash' >> "$GITHUB_STEP_SUMMARY"
+          echo "curl https://purge.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/beginner.json" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
