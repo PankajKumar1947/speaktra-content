@@ -1,0 +1,42 @@
+[
+  {
+    "id": "technology",
+    "name": "Information Technology",
+    "description": "Software development, IT services, and technical communication"
+  },
+  {
+    "id": "business",
+    "name": "Business & Management",
+    "description": "Corporate communication, meetings, and leadership vocabulary"
+  },
+  {
+    "id": "student",
+    "name": "Student & Academics",
+    "description": "School & college discussions, essays, presentations, and exam prep"
+  },
+  {
+    "id": "medical",
+    "name": "Healthcare & Medicine",
+    "description": "Medical terminology, clinical communication, and patient care"
+  },
+  {
+    "id": "finance",
+    "name": "Finance & Banking",
+    "description": "Accounting, investments, banking, and economic terminology"
+  },
+  {
+    "id": "law",
+    "name": "Legal & Compliance",
+    "description": "Contracts, litigation, legal terms, and regulatory compliance"
+  },
+  {
+    "id": "education",
+    "name": "Education & Teaching",
+    "description": "Pedagogy, classroom communication, and academic administration"
+  },
+  {
+    "id": "science",
+    "name": "Science & Research",
+    "description": "Scientific methods, laboratory communication, and data analysis"
+  }
+]

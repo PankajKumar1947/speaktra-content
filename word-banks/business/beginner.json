@@ -1,0 +1,292 @@
+{
+  "themes": [
+    "software_basics",
+    "collaboration_agile"
+  ],
+  "words": {
+    "software_basics": [
+      {
+        "word": "compile",
+        "meaning": "to convert written code into machine-executable instructions"
+      },
+      {
+        "word": "syntax",
+        "meaning": "the set of grammatical rules governing a programming language"
+      },
+      {
+        "word": "variable",
+        "meaning": "a named storage location in memory holding data that can change"
+      },
+      {
+        "word": "function",
+        "meaning": "a reusable block of code designed to perform a specific task"
+      },
+      {
+        "word": "parameter",
+        "meaning": "a value passed into a function or procedure"
+      },
+      {
+        "word": "execute",
+        "meaning": "to run a program or carry out a series of instructions"
+      },
+      {
+        "word": "loop",
+        "meaning": "a programming construct that repeats a block of code until a condition is met"
+      },
+      {
+        "word": "condition",
+        "meaning": "a logical statement evaluated as true or false to guide program flow"
+      },
+      {
+        "word": "array",
+        "meaning": "an ordered collection of elements stored at contiguous memory locations"
+      },
+      {
+        "word": "string",
+        "meaning": "a sequence of characters used to represent text"
+      },
+      {
+        "word": "boolean",
+        "meaning": "a binary data type that can only be either true or false"
+      },
+      {
+        "word": "constant",
+        "meaning": "an identifier whose assigned value cannot be altered during execution"
+      },
+      {
+        "word": "scope",
+        "meaning": "the region of a program where a defined variable or function is accessible"
+      },
+      {
+        "word": "database",
+        "meaning": "an organized collection of structured data stored electronically"
+      },
+      {
+        "word": "query",
+        "meaning": "a request for data or information retrieval from a database"
+      },
+      {
+        "word": "framework",
+        "meaning": "a foundational software platform providing standard code and structure"
+      },
+      {
+        "word": "library",
+        "meaning": "a collection of precompiled routines or helper functions reusable by programs"
+      },
+      {
+        "word": "package",
+        "meaning": "a bundled collection of modules or libraries distributed together"
+      },
+      {
+        "word": "dependency",
+        "meaning": "an external library or module required by software to function properly"
+      },
+      {
+        "word": "module",
+        "meaning": "a separate, self-contained unit of code designed to handle specific logic"
+      },
+      {
+        "word": "interface",
+        "meaning": "a shared boundary or contract through which two components exchange data"
+      },
+      {
+        "word": "algorithm",
+        "meaning": "a step-by-step set of instructions designed to solve a specific problem"
+      },
+      {
+        "word": "iteration",
+        "meaning": "a single repetition of a process or a loop cycle"
+      },
+      {
+        "word": "recursion",
+        "meaning": "a programming technique where a function calls itself to solve a smaller subproblem"
+      },
+      {
+        "word": "argument",
+        "meaning": "the actual value supplied to a function when it is invoked"
+      },
+      {
+        "word": "runtime",
+        "meaning": "the period during which a computer program is actively executing"
+      },
+      {
+        "word": "compiler",
+        "meaning": "a program that translates high-level code directly into executable machine code"
+      },
+      {
+        "word": "interpreter",
+        "meaning": "a program that executes instructions line by line without prior compilation"
+      },
+      {
+        "word": "binary",
+        "meaning": "a base-2 numbering system consisting solely of zeroes and ones"
+      },
+      {
+        "word": "memory",
+        "meaning": "the hardware component where data and instructions are temporarily stored"
+      },
+      {
+        "word": "buffer",
+        "meaning": "a temporary storage area in memory holding data while being transferred"
+      },
+      {
+        "word": "thread",
+        "meaning": "the smallest sequence of programmed instructions managed independently by an OS scheduler"
+      },
+      {
+        "word": "process",
+        "meaning": "an instance of a computer program currently being executed"
+      },
+      {
+        "word": "cache",
+        "meaning": "a high-speed data storage layer storing duplicate data for faster future access"
+      },
+      {
+        "word": "latency",
+        "meaning": "the time delay between an action being initiated and its resulting response"
+      }
+    ],
+    "collaboration_agile": [
+      {
+        "word": "repository",
+        "meaning": "a centralized storage location where code and version history are kept"
+      },
+      {
+        "word": "commit",
+        "meaning": "a snapshot recording changes made to files in a version control system"
+      },
+      {
+        "word": "branch",
+        "meaning": "an isolated line of development diverging from the main codebase"
+      },
+      {
+        "word": "merge",
+        "meaning": "the process of integrating changes from one branch into another"
+      },
+      {
+        "word": "conflict",
+        "meaning": "a disagreement between code changes that version control cannot automatically resolve"
+      },
+      {
+        "word": "standup",
+        "meaning": "a short daily meeting where team members share status, plans, and blockers"
+      },
+      {
+        "word": "sprint",
+        "meaning": "a fixed time period during which specific development tasks must be completed"
+      },
+      {
+        "word": "backlog",
+        "meaning": "a prioritized list of tasks, features, and fixes waiting to be worked on"
+      },
+      {
+        "word": "velocity",
+        "meaning": "a measure of the amount of work an engineering team completes in a sprint"
+      },
+      {
+        "word": "blocker",
+        "meaning": "an obstacle or issue preventing progress on a scheduled development task"
+      },
+      {
+        "word": "review",
+        "meaning": "an inspection of proposed code changes conducted by peers prior to merging"
+      },
+      {
+        "word": "refactor",
+        "meaning": "restructuring existing code to improve maintainability without altering external behavior"
+      },
+      {
+        "word": "ticket",
+        "meaning": "a formal record documenting an issue, task, or feature request in project software"
+      },
+      {
+        "word": "deliverable",
+        "meaning": "a tangible product, service, or feature handed over to stakeholders"
+      },
+      {
+        "word": "milestone",
+        "meaning": "a significant event or checkpoint along a project timeline"
+      },
+      {
+        "word": "scope",
+        "meaning": "the defined boundaries, objectives, and deliverables of a project"
+      },
+      {
+        "word": "retrospective",
+        "meaning": "a meeting held at the end of a sprint to reflect on successes and areas to improve"
+      },
+      {
+        "word": "iteration",
+        "meaning": "the repeated cycle of designing, developing, testing, and evaluating software"
+      },
+      {
+        "word": "stakeholder",
+        "meaning": "any individual or group with an interest or investment in the project outcome"
+      },
+      {
+        "word": "estimation",
+        "meaning": "the process of forecasting the time or effort required to complete a task"
+      },
+      {
+        "word": "deployment",
+        "meaning": "the process of distributing software to a server or target environment for use"
+      },
+      {
+        "word": "staging",
+        "meaning": "a pre-production environment mimicking production for final testing"
+      },
+      {
+        "word": "production",
+        "meaning": "the live environment where software is actively accessed by end users"
+      },
+      {
+        "word": "rollback",
+        "meaning": "reverting software to a previous stable state following an erroneous release"
+      },
+      {
+        "word": "release",
+        "meaning": "an official distribution of a software version made available to users"
+      },
+      {
+        "word": "pipeline",
+        "meaning": "an automated sequence of steps through which code travels from commit to production"
+      },
+      {
+        "word": "artifact",
+        "meaning": "a tangible byproduct generated during the software development build process"
+      },
+      {
+        "word": "continuous",
+        "meaning": "an engineering practice of frequently integrating and deploying code updates"
+      },
+      {
+        "word": "compliance",
+        "meaning": "adherence to established standards, policies, and regulatory guidelines"
+      },
+      {
+        "word": "roadmap",
+        "meaning": "a strategic visual overview of a project's goals, milestones, and deliverables"
+      },
+      {
+        "word": "bandwidth",
+        "meaning": "the practical capacity or availability of team members to undertake additional work"
+      },
+      {
+        "word": "onboarding",
+        "meaning": "the process of integrating and educating a new developer into a team and codebase"
+      },
+      {
+        "word": "workflow",
+        "meaning": "the sequence of industrial, administrative, or team processes through which work passes"
+      },
+      {
+        "word": "governance",
+        "meaning": "the rules, practices, and policies determining how a project is directed and managed"
+      },
+      {
+        "word": "handoff",
+        "meaning": "the act of transferring responsibility for a deliverable from one team or person to another"
+      }
+    ]
+  }
+}
