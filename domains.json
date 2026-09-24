@@ -10,11 +10,6 @@
     "description": "Corporate communication, meetings, and leadership vocabulary"
   },
   {
-    "id": "student",
-    "name": "Student & Academics",
-    "description": "School & college discussions, essays, presentations, and exam prep"
-  },
-  {
     "id": "medical",
     "name": "Healthcare & Medicine",
     "description": "Medical terminology, clinical communication, and patient care"
@@ -30,9 +25,9 @@
     "description": "Contracts, litigation, legal terms, and regulatory compliance"
   },
   {
-    "id": "education",
-    "name": "Education & Teaching",
-    "description": "Pedagogy, classroom communication, and academic administration"
+    "id": "academics",
+    "name": "Academics",
+    "description": "Student life, teaching, pedagogy, essays, presentations, and academic communication"
   },
   {
     "id": "science",

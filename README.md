@@ -15,11 +15,10 @@ All JSON files are hosted directly from GitHub via the **jsDelivr CDN**.
     │   ├── intermediate.json
     │   └── advanced.json
     ├── business/{beginner,intermediate,advanced}.json
-    ├── student/{beginner,intermediate,advanced}.json
+    ├── academics/{beginner,intermediate,advanced}.json  # merged: student + education (Academics)
     ├── medical/{beginner,intermediate,advanced}.json
     ├── finance/{beginner,intermediate,advanced}.json
     ├── law/{beginner,intermediate,advanced}.json
-    ├── education/{beginner,intermediate,advanced}.json
     └── science/{beginner,intermediate,advanced}.json
 ```
 
