@@ -11,15 +11,15 @@ All JSON files are hosted directly from GitHub via the **jsDelivr CDN**.
 ├── domains.json                  # List of all domains (id, name, description)
 └── word-banks/
     ├── technology/
-    │   ├── beginner.json
-    │   ├── intermediate.json
-    │   └── advanced.json
-    ├── business/{beginner,intermediate,advanced}.json
-    ├── academics/{beginner,intermediate,advanced}.json  # merged: student + education (Academics)
-    ├── medical/{beginner,intermediate,advanced}.json
-    ├── finance/{beginner,intermediate,advanced}.json
-    ├── law/{beginner,intermediate,advanced}.json
-    └── science/{beginner,intermediate,advanced}.json
+    │   ├── easy.json
+    │   ├── medium.json
+    │   └── hard.json
+    ├── business/{easy,medium,hard}.json
+    ├── academics/{easy,medium,hard}.json  # merged: student + education (Academics)
+    ├── medical/{easy,medium,hard}.json
+    ├── finance/{easy,medium,hard}.json
+    ├── law/{easy,medium,hard}.json
+    └── science/{easy,medium,hard}.json
 ```
 
 ## Hosting — jsDelivr CDN (No Extra Deployment Needed)
@@ -37,10 +37,10 @@ https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/<path>
 | File | jsDelivr URL |
 |------|--------------|
 | `domains.json` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/domains.json` |
-| `technology/beginner` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/beginner.json` |
-| `technology/intermediate` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/intermediate.json` |
-| `business/beginner` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/business/beginner.json` |
-| Any domain/level | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/<domain>/<level>.json` |
+| `technology/easy` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/easy.json` |
+| `technology/medium` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/medium.json` |
+| `business/easy` | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/business/easy.json` |
+| Any domain/difficulty | `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/<domain>/<difficulty>.json` |
 
 > Replace `PankajKumar1947/speaktra-content` if you fork the repo, and `@main` with a tag like `@v1.0.1` for version pinning (see below).
 
@@ -52,16 +52,16 @@ const domains = await fetch(
   'https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/domains.json'
 ).then(r => r.json());
 
-// Fetch word bank for a domain + level
-async function getWordBank(domain, level) {
-  const url = `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/${domain}/${level}.json`;
+// Fetch word bank for a domain + difficulty
+async function getWordBank(domain, difficulty) {
+  const url = `https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/${domain}/${difficulty}.json`;
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch ${domain}/${level}`);
+  if (!res.ok) throw new Error(`Failed to fetch ${domain}/${difficulty}`);
   return res.json();
 }
 
 // Example
-const words = await getWordBank('technology', 'beginner');
+const words = await getWordBank('technology', 'easy');
 ```
 
 ### Why jsDelivr vs `raw.githubusercontent.com`?
@@ -96,7 +96,7 @@ No manual step needed — just `git push`.
 Purge a single file:
 
 ```bash
-curl https://purge.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/beginner.json
+curl https://purge.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/easy.json
 curl https://purge.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/domains.json
 ```
 
@@ -125,7 +125,7 @@ git push origin v1.0.1
 Use in app:
 
 ```
-https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@v1.0.1/word-banks/technology/beginner.json
+https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@v1.0.1/word-banks/technology/easy.json
 https://cdn.jsdelivr.net/gh/PankajKumar1947/speaktra-content@v1.0.1/domains.json
 ```
 
@@ -135,7 +135,7 @@ Recommended flow:
 
 ## Contributing
 
-1. Edit or add JSON under `word-banks/<domain>/<level>.json` or `domains.json`.
+1. Edit or add JSON under `word-banks/<domain>/<difficulty>.json` or `domains.json`.
 2. Validate JSON is well-formed (`jq empty <file>` or `python -m json.tool`).
 3. Commit and push to `main` — CDN cache is purged automatically.
 4. For breaking/content milestones, create a tagged release for version pinning.

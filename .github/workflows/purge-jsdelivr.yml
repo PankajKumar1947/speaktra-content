@@ -101,5 +101,5 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Manual purge example:" >> "$GITHUB_STEP_SUMMARY"
           echo '```bash' >> "$GITHUB_STEP_SUMMARY"
-          echo "curl https://purge.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/beginner.json" >> "$GITHUB_STEP_SUMMARY"
+          echo "curl https://purge.jsdelivr.net/gh/PankajKumar1947/speaktra-content@main/word-banks/technology/easy.json" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
